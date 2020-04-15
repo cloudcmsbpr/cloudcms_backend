@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    if user
+        h1=(user.email)
+        if user.cmsUrl
+            h2 Your CMS page
+            br
+            a(href=user.cmsUrl, style='font-size: 3rem')=(user.cmsUrl)
+            br
+            br
+        else
+            include partials/createCMS
+    else
+        h1 Hi
+    form(action='/deleteCMS', method='POST')
+        button#bbb.btn.btn-primary Delete
+
+    div#outLog
+
+
